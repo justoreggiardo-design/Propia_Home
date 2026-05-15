@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin · Propia Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- ===================== LOGIN ===================== -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-card">
+    <div class="brand">
+      <span class="brand-mark">Propia</span>
+      <span class="brand-script">home</span>
+    </div>
+    <p class="login-sub">Panel de administración</p>
+
+    <div class="field-group">
+      <label class="field-label">Repositorio GitHub <span class="field-hint">(usuario/repo)</span></label>
+      <input class="field-input" type="text" id="loginRepo" placeholder="justo/propia-home" autocomplete="off">
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Token de acceso GitHub</label>
+      <input class="field-input" type="password" id="loginToken" placeholder="ghp_xxxxxxxxxxxx" autocomplete="off">
+      <p class="field-hint-block">Generalo en GitHub → Settings → Developer settings → Personal access tokens → Fine-grained. Permisos: <em>Contents: Read &amp; write</em></p>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Cloudinary Cloud Name <span class="field-hint">(para subir imágenes)</span></label>
+      <input class="field-input" type="text" id="loginCloud" placeholder="mi-cloud-name" autocomplete="off">
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Cloudinary Upload Preset <span class="field-hint">(unsigned)</span></label>
+      <input class="field-input" type="text" id="loginPreset" placeholder="propia_unsigned" autocomplete="off">
+    </div>
+
+    <button class="primary-btn login-btn" onclick="Admin.login()">Ingresar</button>
+    <p class="login-note" id="loginError"></p>
+  </div>
+</div>
+
+<!-- ===================== PANEL ===================== -->
+<div class="admin-shell hidden" id="adminShell">
+
+  <header class="admin-header">
+    <div class="brand">
+      <span class="brand-mark">Propia</span>
+      <span class="brand-script">home</span>
+    </div>
+    <span class="admin-badge">Admin</span>
+    <div class="header-actions">
+      <span class="save-status" id="saveStatus"></span>
+      <button class="ghost-btn" onclick="Admin.logout()">Salir</button>
+      <a href="index.html" target="_blank" class="ghost-btn">Ver catálogo →</a>
+    </div>
+  </header>
+
+  <div class="admin-body">
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <h2 class="toolbar-title">Almohadones <span class="product-count" id="productCount"></span></h2>
+      <button class="primary-btn" onclick="Admin.newProduct()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        Nuevo almohadón
+      </button>
+    </div>
+
+    <!-- Product list -->
+    <div class="product-list" id="productList"></div>
+
+  </div>
+</div>
+
+<!-- ===================== MODAL EDITOR ===================== -->
+<div class="modal-overlay hidden" id="editorOverlay" onclick="if(event.target===this)Admin.closeEditor()">
+  <div class="editor-modal" id="editorModal">
+
+    <header class="editor-header">
+      <h3 class="editor-title" id="editorTitle">Nuevo almohadón</h3>
+      <button class="icon-btn" onclick="Admin.closeEditor()" aria-label="Cerrar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </header>
+
+    <div class="editor-body">
+
+      <div class="editor-cols">
+        <!-- Left col -->
+        <div class="editor-col">
+          <div class="field-group">
+            <label class="field-label">ID <span class="field-hint">(único, sin espacios)</span></label>
+            <input class="field-input" type="text" id="fId" placeholder="nombre-id">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Nombre</label>
+            <input class="field-input" type="text" id="fName" placeholder="Ceferino" oninput="Admin.autoId()">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Descripción</label>
+            <textarea class="field-input field-textarea" id="fDesc" rows="2" placeholder="Tusor natural con..."></textarea>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Categoría</label>
+            <select class="field-input" id="fCat">
+              <option value="tusor">Tusor</option>
+              <option value="tejido">Tejido a mano</option>
+              <option value="pana">Pana</option>
+              <option value="terciopelo">Terciopelo</option>
+              <option value="bordado">Bordado</option>
+              <option value="pintado">Pintado a mano</option>
+              <option value="yute">Yute</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Colores disponibles</label>
+            <div class="color-check-grid" id="fColors"></div>
+          </div>
+        </div>
+
+        <!-- Right col -->
+        <div class="editor-col">
+          <div class="field-group">
+            <label class="field-label">Medidas y precios</label>
+            <div class="sizes-list" id="fSizes"></div>
+            <button class="add-row-btn" onclick="Admin.addSizeRow()">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              Agregar medida
+            </button>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Imágenes</label>
+            <div class="imgs-grid" id="fImgs"></div>
+            <label class="upload-area" id="uploadArea">
+              <input type="file" id="imgUpload" accept="image/*" multiple onchange="Admin.uploadImages(this.files)" style="display:none">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <span id="uploadLabel">Subir imágenes a Cloudinary</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="editor-footer">
+      <button class="danger-btn hidden" id="deleteBtn" onclick="Admin.deleteProduct()">Eliminar almohadón</button>
+      <div class="editor-footer-right">
+        <button class="ghost-btn" onclick="Admin.closeEditor()">Cancelar</button>
+        <button class="primary-btn" onclick="Admin.saveProduct()">Guardar cambios</button>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+<!-- ===================== CONFIRM DIALOG ===================== -->
+<div class="confirm-overlay hidden" id="confirmOverlay">
+  <div class="confirm-box">
+    <p class="confirm-msg" id="confirmMsg"></p>
+    <div class="confirm-actions">
+      <button class="ghost-btn" onclick="Admin.confirmNo()">Cancelar</button>
+      <button class="danger-btn" onclick="Admin.confirmYes()">Eliminar</button>
+    </div>
+  </div>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

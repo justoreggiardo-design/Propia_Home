@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propia Home — Catálogo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <button class="hamburger" id="hamburger" aria-label="Filtros">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="brand">
+    <span class="brand-mark">Propia</span>
+    <span class="brand-script">home</span>
+  </div>
+  <button class="cart-trigger" onclick="UI.toggleCart()">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16l-1.5 11a2 2 0 0 1-2 1.7H7.5a2 2 0 0 1-2-1.7L4 7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+    <span>Canasta</span>
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
+</header>
+
+<div class="layout">
+  <!-- SIDEBAR FILTERS -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+
+      <div class="filter-block">
+        <h3 class="filter-h">Buscar</h3>
+        <div class="search-wrap">
+          <svg class="search-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input class="search-input" type="text" placeholder="Nombre del almohadón..." id="searchInput" oninput="UI.applyFilters()">
+        </div>
+      </div>
+
+      <div class="filter-block">
+        <h3 class="filter-h">Categoría</h3>
+        <div class="category-list" id="categoryList"></div>
+      </div>
+
+      <div class="filter-block">
+        <h3 class="filter-h">Color</h3>
+        <div class="color-grid" id="colorFilters"></div>
+        <div class="filter-hint" id="colorHint">Seleccioná uno o más colores</div>
+      </div>
+
+      <div class="filter-block">
+        <h3 class="filter-h">Medida</h3>
+        <div class="size-grid" id="sizeFilters"></div>
+      </div>
+
+      <div class="filter-block">
+        <h3 class="filter-h">Precio máximo</h3>
+        <div class="price-range">
+          <input type="range" class="price-slider" id="priceSlider" min="25000" max="80000" value="80000" step="500" oninput="UI.updatePrice()">
+          <div class="price-labels">
+            <span>$25.000</span>
+            <span id="priceLabel">$80.000</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="clear-btn" onclick="UI.clearFilters()">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        Limpiar filtros
+      </button>
+
+    </div>
+  </aside>
+
+  <!-- BACKDROP for mobile sidebar -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="UI.closeSidebar()"></div>
+
+  <!-- MAIN CATALOG -->
+  <main class="catalog">
+
+    <section class="hero">
+      <div class="hero-img">
+        <img src="assets/products/p32_4.jpg" alt="">
+      </div>
+      <div class="hero-text">
+        <span class="eyebrow">Catálogo · Diciembre 2025</span>
+        <h1 class="hero-title">Almohadones que sostienen<br><em>una historia.</em></h1>
+        <p class="hero-sub">Tusores, tejidos a mano, panas, terciopelos y bordados. Hechos uno a uno en hilo de algodón, lana y yute.</p>
+        <a href="#grid" class="hero-cta">Explorar el catálogo →</a>
+      </div>
+    </section>
+
+    <div class="catalog-bar" id="grid">
+      <div>
+        <span class="result-count" id="resultCount">0 productos</span>
+        <button class="filters-toggle" onclick="UI.openSidebar()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M6 12h12M10 18h4"/></svg>
+          Filtros
+        </button>
+      </div>
+      <div class="sort-wrap">
+        <label>Ordenar:</label>
+        <select class="sort-select" id="sortSelect" onchange="UI.applyFilters()">
+          <option value="default">Recomendado</option>
+          <option value="price-asc">Precio: menor a mayor</option>
+          <option value="price-desc">Precio: mayor a menor</option>
+          <option value="name-asc">Nombre A–Z</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="active-chips" id="activeChips"></div>
+
+    <div class="product-grid" id="productGrid"></div>
+
+    <footer class="catalog-footer">
+      <div class="brand brand-footer">
+        <span class="brand-mark">Propia</span>
+        <span class="brand-script">home</span>
+      </div>
+      <p>Catálogo Diciembre 2025 · Los precios incluyen funda + relleno · Sujeto a disponibilidad de stock.</p>
+    </footer>
+
+  </main>
+</div>
+
+<!-- PRODUCT QUICK-VIEW MODAL -->
+<div class="qv-overlay" id="qvOverlay" onclick="if(event.target===this)UI.closeQuickView()">
+  <div class="qv-modal" id="qvModal"></div>
+</div>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="UI.toggleCart()"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <header class="cart-header">
+    <h2>Tu canasta</h2>
+    <button class="icon-btn" onclick="UI.toggleCart()" aria-label="Cerrar">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </header>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-footer" id="cartFooter">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Total estimado</span>
+      <span class="cart-total-amount" id="cartTotal">$0</span>
+    </div>
+    <div class="cart-item-count" id="cartItemCount">0 artículos</div>
+    <button class="primary-btn" onclick="UI.showPresupuesto()">Ver presupuesto completo</button>
+    <button class="ghost-btn" onclick="UI.sendWhatsapp()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-1.1-.5-2-1-2.9-2.4-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4 0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.7-.8 1.8 0 1.1.8 2.1.9 2.3.1.2 1.6 2.4 3.8 3.3 1.4.6 2 .7 2.6.6.4-.1 1.2-.5 1.4-1 .2-.5.2-.9.1-1 0-.1-.2-.1-.4-.3z"/><path d="M19.1 4.9C17.2 3 14.7 2 12 2 6.5 2 2 6.5 2 12c0 1.7.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10 0-2.7-1-5.2-2.9-6.9zM12 20.1c-1.5 0-2.9-.4-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3C4.4 14.9 4 13.5 4 12 4 7.6 7.6 4 12 4c2.1 0 4.1.8 5.6 2.3 1.5 1.5 2.4 3.5 2.4 5.7 0 4.4-3.6 8.1-8 8.1z"/></svg>
+      Consultar por WhatsApp
+    </button>
+    <p class="note-text">Precios incluyen funda + relleno · Catálogo Dic. 2025</p>
+  </div>
+</aside>
+
+<!-- PRESUPUESTO MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)UI.closeModal()">
+  <div class="modal">
+    <header class="modal-head">
+      <div class="modal-eyebrow">Presupuesto</div>
+      <div class="brand modal-brand">
+        <span class="brand-mark">Propia</span>
+        <span class="brand-script">home</span>
+      </div>
+      <div class="modal-date" id="modalDate"></div>
+    </header>
+    <div class="modal-items" id="modalItems"></div>
+    <p class="modal-note">Los precios son de funda + relleno. Sujeto a disponibilidad de stock. Catálogo Diciembre 2025.</p>
+    <div class="modal-actions">
+      <button class="ghost-btn" onclick="window.print()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir / PDF
+      </button>
+      <button class="primary-btn" onclick="UI.closeModal()">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

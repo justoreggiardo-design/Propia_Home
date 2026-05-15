@@ -1,0 +1,1544 @@
+// Auto-generated product catalog with images extracted from PDF
+window.PRODUCTS = [
+  {
+    "id": "ceferino",
+    "name": "Ceferino",
+    "desc": "Tusor natural con recortes pestañas cuadros a contratono",
+    "cat": "tusor",
+    "colors": [
+      "negro",
+      "tostado",
+      "chocolate"
+    ],
+    "sizes": [
+      {
+        "code": "120",
+        "size": "50x50",
+        "price": 28500
+      },
+      {
+        "code": "121",
+        "size": "60x60",
+        "price": 30500
+      }
+    ],
+    "imgs": ["assets/products/p01_2.jpg", "assets/products/p01_0.jpg", "assets/products/p01_1.jpg"]
+  },
+  {
+    "id": "cristobal",
+    "name": "Cristóbal",
+    "desc": "Tusor natural con recortes pestañas líneas a contratono",
+    "cat": "tusor",
+    "colors": [
+      "negro",
+      "tostado",
+      "chocolate"
+    ],
+    "sizes": [
+      {
+        "code": "130",
+        "size": "50x50",
+        "price": 28500
+      },
+      {
+        "code": "131",
+        "size": "50x70",
+        "price": 30500
+      }
+    ],
+    "imgs": [
+      "assets/products/p02_2.jpg",
+      "assets/products/p02_1.jpg",
+      "assets/products/p02_0.jpg"
+    ]
+  },
+  {
+    "id": "eliseo",
+    "name": "Eliseo",
+    "desc": "Tejido a mano en hilo de algodón natural",
+    "cat": "tejido",
+    "colors": [
+      "natural"
+    ],
+    "sizes": [
+      {
+        "code": "140",
+        "size": "30x50",
+        "price": 28000
+      }
+    ],
+    "imgs": [
+      "assets/products/p02_3.jpg"
+    ]
+  },
+  {
+    "id": "fermin",
+    "name": "Fermín",
+    "desc": "Tejido a mano en yute, con pestaña en tusor negro",
+    "cat": "yute",
+    "colors": [
+      "yute_color",
+      "negro"
+    ],
+    "sizes": [
+      {
+        "code": "141",
+        "size": "40x60",
+        "price": 37000
+      },
+      {
+        "code": "142",
+        "size": "50x50",
+        "price": 37000
+      },
+      {
+        "code": "143",
+        "size": "60x60",
+        "price": 41000
+      }
+    ],
+    "imgs": [
+      "assets/products/p03_0.jpg"
+    ]
+  },
+  {
+    "id": "honorio",
+    "name": "Honorio",
+    "desc": "Tejido a mano en yute",
+    "cat": "yute",
+    "colors": [
+      "yute_color"
+    ],
+    "sizes": [
+      {
+        "code": "144",
+        "size": "40x60",
+        "price": 31500
+      }
+    ],
+    "imgs": [
+      "assets/products/p03_1.jpg",
+      "assets/products/p03_2.jpg"
+    ]
+  },
+  {
+    "id": "bartolome",
+    "name": "Bartolomé",
+    "desc": "Tejido a mano en yute, bordado en lana negra",
+    "cat": "yute",
+    "colors": [
+      "yute_color",
+      "negro"
+    ],
+    "sizes": [
+      {
+        "code": "145-0",
+        "size": "40x60",
+        "price": 39000
+      },
+      {
+        "code": "145-1",
+        "size": "50x50",
+        "price": 39000
+      },
+      {
+        "code": "145-2",
+        "size": "60x60",
+        "price": 43500
+      }
+    ],
+    "imgs": [
+      "assets/products/p04_2.jpg",
+      "assets/products/p04_0.jpg"
+    ]
+  },
+  {
+    "id": "timoteo",
+    "name": "Timoteo",
+    "desc": "Tejido a mano en hilo de algodón",
+    "cat": "tejido",
+    "colors": [
+      "terracota",
+      "chocolate"
+    ],
+    "sizes": [
+      {
+        "code": "146",
+        "size": "40x60",
+        "price": 31500
+      }
+    ],
+    "imgs": [
+      "assets/products/p04_1.jpg",
+      "assets/products/p04_3.jpg"
+    ]
+  },
+  {
+    "id": "hortensio",
+    "name": "Hortensio",
+    "desc": "Tusor natural con centro tejido a mano en yute",
+    "cat": "tusor",
+    "colors": [
+      "natural",
+      "yute_color"
+    ],
+    "sizes": [
+      {
+        "code": "147",
+        "size": "40x60",
+        "price": 29000
+      }
+    ],
+    "imgs": [
+      "assets/products/p05_1.jpg"
+    ]
+  },
+  {
+    "id": "pancho",
+    "name": "Pancho",
+    "desc": "Tejido a mano en yute",
+    "cat": "yute",
+    "colors": [
+      "yute_color"
+    ],
+    "sizes": [
+      {
+        "code": "148-0",
+        "size": "50x50",
+        "price": 34000
+      },
+      {
+        "code": "148-1",
+        "size": "60x60",
+        "price": 36500
+      }
+    ],
+    "imgs": [
+      "assets/products/p05_2.jpg",
+      "assets/products/p05_0.jpg"
+    ]
+  },
+  {
+    "id": "alejo",
+    "name": "Alejo",
+    "desc": "Con borde tejido a mano en yute",
+    "cat": "yute",
+    "colors": [
+      "verde",
+      "gris",
+      "negro"
+    ],
+    "sizes": [
+      {
+        "code": "149",
+        "size": "50x50",
+        "price": 28500
+      }
+    ],
+    "imgs": [
+      "assets/products/p06_2.jpg",
+      "assets/products/p06_0.jpg",
+      "assets/products/p06_3.jpg"
+    ]
+  },
+  {
+    "id": "facundo",
+    "name": "Facundo",
+    "desc": "Tusor natural, 3 tiras de flecos hechos a mano, con lentejuelas",
+    "cat": "tusor",
+    "colors": [
+      "natural"
+    ],
+    "sizes": [
+      {
+        "code": "150",
+        "size": "40x60",
+        "price": 28500
+      }
+    ],
+    "imgs": [
+      "assets/products/p06_1.jpg"
+    ]
+  },
+  {
+    "id": "teodoro",
+    "name": "Teodoro",
+    "desc": "Tusor natural con flecos y borlas en hilo de algodón hechos a mano",
+    "cat": "tusor",
+    "colors": [
+      "natural"
+    ],
+    "sizes": [
+      {
+        "code": "160",
+        "size": "120x30",
+        "price": 40500
+      }
+    ],
+    "imgs": [
+      "assets/products/p07_2.jpg",
+      "assets/products/p07_0.jpg"
+    ]
+  },
+  {
+    "id": "antonio",
+    "name": "Antonio",
+    "desc": "Tusor natural con detalle de flecos en rombos y borlas hechos a mano",
+    "cat": "tusor",
+    "colors": [
+      "natural"
+    ],
+    "sizes": [
+      {
+        "code": "165",
+        "size": "40x60",
+        "price": 36500
+      }
+    ],
+    "imgs": [
+      "assets/products/p07_3.jpg",
+      "assets/products/p07_1.jpg"
+    ]
+  },
+  {
+    "id": "braulio",
+    "name": "Braulio",
+    "desc": "Tusor chocolate con borde flecos algodón natural",
+    "cat": "tusor",
+    "colors": [
+      "chocolate"
+    ],
+    "sizes": [
+      {
+        "code": "170",
+        "size": "40x60",
+        "price": 29000
+      },
+      {
+        "code": "171",
+        "size": "50x50",
+        "price": 29000
+      },
+      {
+        "code": "172",
+        "size": "50x70",
+        "price": 33800
+      },
+      {
+        "code": "173",
+        "size": "60x80",
+        "price": 36800
+      }
+    ],
+    "imgs": [
+      "assets/products/p08_2.jpg"
+    ]
+  },
+  {
+    "id": "serafin",
+    "name": "Serafín",
+    "desc": "Frente en pana de algodón antimanchas beige, con borde tejido a mano en hilo de algodón",
+    "cat": "pana",
+    "colors": [
+      "beige"
+    ],
+    "sizes": [
+      {
+        "code": "180",
+        "size": "40x60",
+        "price": 37900
+      }
+    ],
+    "imgs": [
+      "assets/products/p08_0.jpg",
+      "assets/products/p08_1.jpg"
+    ]
+  },
+  {
+    "id": "pascual",
+    "name": "Pascual",
+    "desc": "Tusor natural con flecos y borlas hechos a mano en hilo de algodón",
+    "cat": "tusor",
+    "colors": [
+      "natural"
+    ],
+    "sizes": [
+      {
+        "code": "190",
+        "size": "40x60",
+        "price": 32000
+      }
+    ],
+    "imgs": [
+      "assets/products/p09_0.jpg",
+      "assets/products/p09_1.jpg"
+    ]
+  },
+  {
+    "id": "romeo",
+    "name": "Romeo",
+    "desc": "Tusor natural pintado a mano en negro o beige",
+    "cat": "pintado",
+    "colors": [
+      "negro",
+      "beige"
+    ],
+    "sizes": [
+      {
+        "code": "1050",
+        "size": "55x55",
+        "price": 28500
+      }
+    ],
+    "imgs": [
+      "assets/products/p09_2.jpg",
+      "assets/products/p09_3.jpg"
+    ]
+  },
+  {
+    "id": "rosendo",
+    "name": "Rosendo",
+    "desc": "Tusor natural pintado a mano en negro o beige",
+    "cat": "pintado",
+    "colors": [
+      "negro",
+      "beige"
+    ],
+    "sizes": [
+      {
+        "code": "1060",
+        "size": "100x40",
+        "price": 38500
+      }
+    ],
+    "imgs": [
+      "assets/products/p10_1.jpg",
+      "assets/products/p10_4.jpg",
+      "assets/products/p10_0.jpg",
+      "assets/products/p10_5.jpg"
+    ]
+  },
+  {
+    "id": "santiago",
+    "name": "Santiago",
+    "desc": "Tusor natural pintado a mano en negro o beige",
+    "cat": "pintado",
+    "colors": [
+      "negro",
+      "beige"
+    ],
+    "sizes": [
+      {
+        "code": "1100",
+        "size": "50x50",
+        "price": 26000
+      },
+      {
+        "code": "1110",
+        "size": "50x70",
+        "price": 30000
+      }
+    ],
+    "imgs": [
+      "assets/products/p10_2.jpg",
+      "assets/products/p10_3.jpg"
+    ]
+  },
+  {
+    "id": "pablo",
+    "name": "Pablo",
+    "desc": "Tusor natural pintado a mano en negro o beige",
+    "cat": "pintado",
+    "colors": [
+      "negro",
+      "beige"
+    ],
+    "sizes": [
+      {
+        "code": "1200",
+        "size": "50x50",
+        "price": 26000
+      },
+      {
+        "code": "1210",
+        "size": "50x70",
+        "price": 30000
+      }
+    ],
+    "imgs": [
+      "assets/products/p11_2.jpg",
+      "assets/products/p11_3.jpg",
+      "assets/products/p11_1.jpg",
+      "assets/products/p11_0.jpg"
+    ]
+  },
+  {
+    "id": "rafael",
+    "name": "Rafael",
+    "desc": "Frente en tusor rayado chocolate/natural y dorso en gasa chocolate (reversible)",
+    "cat": "tusor",
+    "colors": [
+      "chocolate",
+      "natural"
+    ],
+    "sizes": [
+      {
+        "code": "1220",
+        "size": "40x60",
+        "price": 31500
+      },
+      {
+        "code": "1221",
+        "size": "55x55",
+        "price": 32500
+      },
+      {
+        "code": "1222",
+        "size": "50x70",
+        "price": 35000
+      },
+      {
+        "code": "1223",
+        "size": "60x80",
+        "price": 37500
+      }
+    ],
+    "imgs": [
+      "assets/products/p11_4.jpg"
+    ]
+  },
+  {
+    "id": "gregorio",
+    "name": "Gregorio",
+    "desc": "Tusor rayado en verde o chocolate",
+    "cat": "tusor",
+    "colors": [
+      "verde",
+      "chocolate"
+    ],
+    "sizes": [
+      {
+        "code": "1230",
+        "size": "40x60",
+        "price": 27500
+      },
+      {
+        "code": "1231",
+        "size": "50x50",
+        "price": 27500
+      },
+      {
+        "code": "1232",
+        "size": "50x70",
+        "price": 32000
+      },
+      {
+        "code": "1233",
+        "size": "60x80",
+        "price": 34000
+      }
+    ],
+    "imgs": [
+      "assets/products/p12_0.jpg",
+      "assets/products/p12_1.jpg"
+    ]
+  },
+  {
+    "id": "cristiano",
+    "name": "Cristiano",
+    "desc": "Rayas anchas marrones con bordes desflecados",
+    "cat": "tusor",
+    "colors": [
+      "chocolate"
+    ],
+    "sizes": [
+      {
+        "code": "1240",
+        "size": "40x60",
+        "price": 27500
+      },
+      {
+        "code": "1241",
+        "size": "55x55",
+        "price": 29000
+      },
+      {
+        "code": "1242",
+        "size": "50x70",
+        "price": 32000
+      }
+    ],
+    "imgs": [
+      "assets/products/p12_2.jpg"
+    ]
+  },
+  {
+    "id": "conrado",
+    "name": "Conrado",
+    "desc": "Frente tusor rayado con pestaña 1cm en bordes",
+    "cat": "tusor",
+    "colors": [
+      "gris",
+      "rosa"
+    ],
+    "sizes": [
+      {
+        "code": "1250",
+        "size": "40x60",
+        "price": 27500
+      },
+      {
+        "code": "1251",
+        "size": "50x50",
+        "price": 27500
+      },
+      {
+        "code": "1252",
+        "size": "50x70",
+        "price": 32000
+      }
+    ],
+    "imgs": [
+      "assets/products/p13_0.jpg",
+      "assets/products/p13_1.jpg",
+      "assets/products/p13_2.jpg"
+    ]
+  },
+  {
+    "id": "felipe",
+    "name": "Felipe",
+    "desc": "Franja centro a rayas, fondo natural",
+    "cat": "tusor",
+    "colors": [
+      "gris",
+      "rosa"
+    ],
+    "sizes": [
+      {
+        "code": "1260",
+        "size": "40x60",
+        "price": 27500
+      },
+      {
+        "code": "1261",
+        "size": "50x50",
+        "price": 27500
+      },
+      {
+        "code": "1262",
+        "size": "50x70",
+        "price": 32000
+      },
+      {
+        "code": "1263",
+        "size": "60x80",
+        "price": 34000
+      }
+    ],
+    "imgs": [
+      "assets/products/p13_4.jpg",
+      "assets/products/p13_3.jpg"
+    ]
+  },
+  {
+    "id": "caetano",
+    "name": "Caetano",
+    "desc": "Frente en tusor a cuadros negros sobre color natural",
+    "cat": "tusor",
+    "colors": [
+      "natural",
+      "negro"
+    ],
+    "sizes": [
+      {
+        "code": "1280",
+        "size": "50x50",
+        "price": 27500
+      },
+      {
+        "code": "1281",
+        "size": "50x70",
+        "price": 32000
+      },
+      {
+        "code": "1282",
+        "size": "60x80",
+        "price": 34000
+      },
+      {
+        "code": "1283",
+        "size": "60x90",
+        "price": 36000
+      }
+    ],
+    "imgs": [
+      "assets/products/p14_0.jpg",
+      "assets/products/p14_3.jpg"
+    ]
+  },
+  {
+    "id": "raymundo",
+    "name": "Raymundo",
+    "desc": "Frente a rayas en negro, camel, gris o visón",
+    "cat": "tusor",
+    "colors": [
+      "negro",
+      "tostado",
+      "gris"
+    ],
+    "sizes": [
+      {
+        "code": "1290",
+        "size": "40x60",
+        "price": 28500
+      },
+      {
+        "code": "1291",
+        "size": "50x50",
+        "price": 28500
+      },
+      {
+        "code": "1292",
+        "size": "50x70",
+        "price": 32000
+      },
+      {
+        "code": "1293",
+        "size": "60x80",
+        "price": 34000
+      }
+    ],
+    "imgs": ["assets/products/p14_1.jpg", "assets/products/p14_2.jpg"]
+  },
+  {
+    "id": "torcuato",
+    "name": "Torcuato",
+    "desc": "Frente en tusor a cuadros: negro, beige, habano o verde",
+    "cat": "tusor",
+    "colors": [
+      "negro",
+      "beige",
+      "tostado",
+      "verde"
+    ],
+    "sizes": [
+      {
+        "code": "1300",
+        "size": "50x50",
+        "price": 28500
+      },
+      {
+        "code": "1310",
+        "size": "50x70",
+        "price": 32000
+      },
+      {
+        "code": "1320",
+        "size": "60x80",
+        "price": 34000
+      },
+      {
+        "code": "1330",
+        "size": "60x90",
+        "price": 36000
+      }
+    ],
+    "imgs": [
+      "assets/products/p15_3.jpg",
+      "assets/products/p15_0.jpg"
+    ]
+  },
+  {
+    "id": "faustino",
+    "name": "Faustino",
+    "desc": "Frente en tusor con volados — cuadros habano/verde o rayas terracota",
+    "cat": "tusor",
+    "colors": [
+      "tostado",
+      "verde",
+      "terracota"
+    ],
+    "sizes": [
+      {
+        "code": "FA1",
+        "size": "50x50",
+        "price": 31000
+      },
+      {
+        "code": "FA2",
+        "size": "50x70",
+        "price": 34500
+      },
+      {
+        "code": "FA3",
+        "size": "60x80",
+        "price": 38000
+      }
+    ],
+    "imgs": [
+      "assets/products/p15_1.jpg",
+      "assets/products/p15_2.jpg"
+    ]
+  },
+  {
+    "id": "placido",
+    "name": "Plácido",
+    "desc": "Centro en pana antimanchas color con pestañas negras",
+    "cat": "pana",
+    "colors": [
+      "beige",
+      "tostado",
+      "chocolate",
+      "verde",
+      "gris"
+    ],
+    "sizes": [
+      {
+        "code": "1420",
+        "size": "40x60",
+        "price": 28500
+      },
+      {
+        "code": "1421",
+        "size": "50x50",
+        "price": 28500
+      },
+      {
+        "code": "1422",
+        "size": "50x70",
+        "price": 31000
+      }
+    ],
+    "imgs": [
+      "assets/products/p16_1.jpg",
+      "assets/products/p16_2.jpg",
+      "assets/products/p16_3.jpg",
+      "assets/products/p16_5.jpg",
+      "assets/products/p16_4.jpg"
+    ]
+  },
+  {
+    "id": "carmelo",
+    "name": "Carmelo",
+    "desc": "Frente en pana de algodón antimanchas",
+    "cat": "pana",
+    "colors": [
+      "beige",
+      "tostado",
+      "rosa",
+      "verde",
+      "gris"
+    ],
+    "sizes": [
+      {
+        "code": "1400",
+        "size": "40x60",
+        "price": 35000
+      },
+      {
+        "code": "1430",
+        "size": "50x50",
+        "price": 35000
+      },
+      {
+        "code": "1431",
+        "size": "50x70",
+        "price": 39500
+      },
+      {
+        "code": "1432",
+        "size": "60x80",
+        "price": 45000
+      }
+    ],
+    "imgs": [
+      "assets/products/p16_0.jpg"
+    ]
+  },
+  {
+    "id": "simonxl",
+    "name": "Simón XL",
+    "desc": "Frente de pana algodón antimanchas — formato largo",
+    "cat": "pana",
+    "colors": [
+      "beige",
+      "tostado",
+      "verde",
+      "rosa",
+      "gris"
+    ],
+    "sizes": [
+      {
+        "code": "1435",
+        "size": "100x40",
+        "price": 49500
+      }
+    ],
+    "imgs": [
+      "assets/products/p17_0.jpg"
+    ]
+  },
+  {
+    "id": "tomas",
+    "name": "Tomás",
+    "desc": "Centro en pana de algodón antimanchas",
+    "cat": "pana",
+    "colors": [
+      "tostado",
+      "beige",
+      "verde",
+      "rosa",
+      "gris"
+    ],
+    "sizes": [
+      {
+        "code": "1440",
+        "size": "40x60",
+        "price": 27000
+      },
+      {
+        "code": "1445",
+        "size": "50x70",
+        "price": 29500
+      }
+    ],
+    "imgs": [
+      "assets/products/p17_1.jpg",
+      "assets/products/p17_2.jpg"
+    ]
+  },
+  {
+    "id": "hipolito",
+    "name": "Hipólito",
+    "desc": "Frente en terciopelo verde oliva, chocolate o negro",
+    "cat": "terciopelo",
+    "colors": [
+      "verde",
+      "chocolate",
+      "negro"
+    ],
+    "sizes": [
+      {
+        "code": "1450",
+        "size": "40x60",
+        "price": 29000
+      },
+      {
+        "code": "1451",
+        "size": "50x50",
+        "price": 29000
+      },
+      {
+        "code": "1452",
+        "size": "50x70",
+        "price": 31500
+      },
+      {
+        "code": "1453",
+        "size": "60x80",
+        "price": 36000
+      }
+    ],
+    "imgs": [
+      "assets/products/p18_0.jpg",
+      "assets/products/p18_1.jpg",
+      "assets/products/p18_4.jpg"
+    ]
+  },
+  {
+    "id": "florencio",
+    "name": "Florencio",
+    "desc": "Frente en terciopelo chocolate con línea pana beige",
+    "cat": "terciopelo",
+    "colors": [
+      "chocolate",
+      "beige"
+    ],
+    "sizes": [
+      {
+        "code": "1455",
+        "size": "40x60",
+        "price": 31000
+      },
+      {
+        "code": "1456",
+        "size": "50x50",
+        "price": 31000
+      }
+    ],
+    "imgs": [
+      "assets/products/p18_3.jpg",
+      "assets/products/p18_2.jpg"
+    ]
+  },
+  {
+    "id": "tristan",
+    "name": "Tristán",
+    "desc": "Frente en terciopelo chocolate con centro pana negro",
+    "cat": "terciopelo",
+    "colors": [
+      "chocolate",
+      "negro"
+    ],
+    "sizes": [
+      {
+        "code": "1457",
+        "size": "40x60",
+        "price": 31000
+      },
+      {
+        "code": "1458",
+        "size": "50x50",
+        "price": 31000
+      }
+    ],
+    "imgs": [
+      "assets/products/p19_2.jpg"
+    ]
+  },
+  {
+    "id": "cayetano",
+    "name": "Cayetano",
+    "desc": "Con borde 2cm en pana negro o tostado",
+    "cat": "terciopelo",
+    "colors": [
+      "negro",
+      "tostado"
+    ],
+    "sizes": [
+      {
+        "code": "1460",
+        "size": "50x50",
+        "price": 32500
+      },
+      {
+        "code": "1461",
+        "size": "60x60",
+        "price": 34500
+      },
+      {
+        "code": "1462",
+        "size": "60x80",
+        "price": 38500
+      },
+      {
+        "code": "1463",
+        "size": "60x90",
+        "price": 40000
+      }
+    ],
+    "imgs": [
+      "assets/products/p19_3.jpg",
+      "assets/products/p19_1.jpg",
+      "assets/products/p19_0.jpg"
+    ]
+  },
+  {
+    "id": "cecilio",
+    "name": "Cecilio",
+    "desc": "Con pestaña en pana negro o tostado",
+    "cat": "terciopelo",
+    "colors": [
+      "negro",
+      "tostado"
+    ],
+    "sizes": [
+      {
+        "code": "1465",
+        "size": "40x60",
+        "price": 27000
+      },
+      {
+        "code": "1446",
+        "size": "50x50",
+        "price": 27000
+      }
+    ],
+    "imgs": [
+      "assets/products/p20_1.jpg",
+      "assets/products/p20_2.jpg"
+    ]
+  },
+  {
+    "id": "constantino",
+    "name": "Constantino",
+    "desc": "Pana antimanchas tostado o beige, con pestañas en negro",
+    "cat": "pana",
+    "colors": [
+      "tostado",
+      "beige",
+      "negro"
+    ],
+    "sizes": [
+      {
+        "code": "1470",
+        "size": "40x60",
+        "price": 36500
+      },
+      {
+        "code": "1471",
+        "size": "50x50",
+        "price": 36500
+      }
+    ],
+    "imgs": [
+      "assets/products/p20_0.jpg"
+    ]
+  },
+  {
+    "id": "beltran",
+    "name": "Beltrán",
+    "desc": "Pana antimanchas beige con centro chocolate",
+    "cat": "pana",
+    "colors": [
+      "beige",
+      "chocolate"
+    ],
+    "sizes": [
+      {
+        "code": "1475",
+        "size": "40x60",
+        "price": 36500
+      },
+      {
+        "code": "1476",
+        "size": "50x50",
+        "price": 36500
+      }
+    ],
+    "imgs": [
+      "assets/products/p21_1.jpg"
+    ]
+  },
+  {
+    "id": "camilo",
+    "name": "Camilo",
+    "desc": "Tusor a cuadros con pestaña en terciopelo negro o verde seco",
+    "cat": "tusor",
+    "colors": [
+      "negro",
+      "verde"
+    ],
+    "sizes": [
+      {
+        "code": "1480",
+        "size": "50x50",
+        "price": 30500
+      },
+      {
+        "code": "1481",
+        "size": "50x70",
+        "price": 32000
+      },
+      {
+        "code": "1482",
+        "size": "60x80",
+        "price": 36000
+      }
+    ],
+    "imgs": [
+      "assets/products/p21_0.jpg"
+    ]
+  },
+  {
+    "id": "lorenzo",
+    "name": "Lorenzo",
+    "desc": "Con pestaña en algodón con lino — gris o beige",
+    "cat": "tusor",
+    "colors": [
+      "gris",
+      "beige"
+    ],
+    "sizes": [
+      {
+        "code": "1490",
+        "size": "50x50",
+        "price": 26500
+      },
+      {
+        "code": "1492",
+        "size": "50x70",
+        "price": 30000
+      }
+    ],
+    "imgs": [
+      "assets/products/p22_0.jpg"
+    ]
+  },
+  {
+    "id": "jeremias",
+    "name": "Jeremías",
+    "desc": "Tusor con rayas lino mezcla — café o arena",
+    "cat": "tusor",
+    "colors": [
+      "tostado",
+      "beige"
+    ],
+    "sizes": [
+      {
+        "code": "1500a",
+        "size": "50x70",
+        "price": 30500
+      },
+      {
+        "code": "1500b",
+        "size": "60x80",
+        "price": 33500
+      }
+    ],
+    "imgs": [
+      "assets/products/p22_2.jpg",
+      "assets/products/p22_1.jpg"
+    ]
+  },
+  {
+    "id": "fausto",
+    "name": "Fausto",
+    "desc": "Con centro flecos hechos a mano",
+    "cat": "tejido",
+    "colors": [
+      "natural"
+    ],
+    "sizes": [
+      {
+        "code": "1510",
+        "size": "50x50",
+        "price": 32000
+      }
+    ],
+    "imgs": [
+      "assets/products/p23_0.jpg"
+    ]
+  },
+  {
+    "id": "fran",
+    "name": "Fran",
+    "desc": "Centro flecos hechos a mano y lentejuela (plata o dorada)",
+    "cat": "tejido",
+    "colors": [
+      "natural"
+    ],
+    "sizes": [
+      {
+        "code": "1530",
+        "size": "30x50",
+        "price": 26000
+      }
+    ],
+    "imgs": [
+      "assets/products/p23_1.jpg"
+    ]
+  },
+  {
+    "id": "amancio",
+    "name": "Amancio",
+    "desc": "Bordado a mano con lana negra o beige",
+    "cat": "bordado",
+    "colors": [
+      "negro",
+      "beige"
+    ],
+    "sizes": [
+      {
+        "code": "1600",
+        "size": "50x50",
+        "price": 32000
+      },
+      {
+        "code": "1610",
+        "size": "40x60",
+        "price": 32000
+      },
+      {
+        "code": "1620",
+        "size": "50x70",
+        "price": 36000
+      }
+    ],
+    "imgs": [
+      "assets/products/p24_1.jpg"
+    ]
+  },
+  {
+    "id": "benicio",
+    "name": "Benicio",
+    "desc": "Tusor tostado o natural, bordado a mano con lana negra",
+    "cat": "bordado",
+    "colors": [
+      "tostado",
+      "natural"
+    ],
+    "sizes": [
+      {
+        "code": "1650",
+        "size": "50x50",
+        "price": 30500
+      }
+    ],
+    "imgs": [
+      "assets/products/p24_0.jpg",
+      "assets/products/p24_2.jpg",
+      "assets/products/p24_3.jpg"
+    ]
+  },
+  {
+    "id": "rogelio",
+    "name": "Rogelio",
+    "desc": "Tusor natural, bordado a mano con lana beige",
+    "cat": "bordado",
+    "colors": [
+      "natural",
+      "beige"
+    ],
+    "sizes": [
+      {
+        "code": "1660",
+        "size": "50x50",
+        "price": 30500
+      }
+    ],
+    "imgs": [
+      "assets/products/p25_2.jpg"
+    ]
+  },
+  {
+    "id": "federico",
+    "name": "Federico",
+    "desc": "Gasa doble gris o arena, con aplique casa bordada a mano",
+    "cat": "bordado",
+    "colors": [
+      "gris",
+      "beige"
+    ],
+    "sizes": [
+      {
+        "code": "1670",
+        "size": "40x60",
+        "price": 30000
+      },
+      {
+        "code": "1671",
+        "size": "50x50",
+        "price": 30000
+      }
+    ],
+    "imgs": [
+      "assets/products/p25_0.jpg",
+      "assets/products/p25_3.jpg",
+      "assets/products/p25_1.jpg"
+    ]
+  },
+  {
+    "id": "lautaro",
+    "name": "Lautaro",
+    "desc": "Funda tubo en algodón con lino bordado a mano",
+    "cat": "bordado",
+    "colors": [
+      "gris",
+      "beige"
+    ],
+    "sizes": [
+      {
+        "code": "1680",
+        "size": "40x80",
+        "price": 37500
+      }
+    ],
+    "imgs": [
+      "assets/products/p26_0.jpg",
+      "assets/products/p26_1.jpg"
+    ]
+  },
+  {
+    "id": "benito",
+    "name": "Benito",
+    "desc": "Bordado a mano en yute o en negro, con flecos",
+    "cat": "bordado",
+    "colors": [
+      "yute_color",
+      "negro"
+    ],
+    "sizes": [
+      {
+        "code": "1700",
+        "size": "50x50",
+        "price": 32000
+      }
+    ],
+    "imgs": [
+      "assets/products/p26_2.jpg",
+      "assets/products/p26_3.jpg"
+    ]
+  },
+  {
+    "id": "pedro",
+    "name": "Pedro Color",
+    "desc": "Múltiples colores disponibles",
+    "cat": "tusor",
+    "colors": [
+      "natural",
+      "beige",
+      "rosa",
+      "terracota",
+      "tostado",
+      "verde",
+      "gris"
+    ],
+    "sizes": [
+      {
+        "code": "1800",
+        "size": "50x50",
+        "price": 27500
+      },
+      {
+        "code": "1810",
+        "size": "50x70",
+        "price": 31000
+      },
+      {
+        "code": "1815",
+        "size": "60x80",
+        "price": 35000
+      },
+      {
+        "code": "1816",
+        "size": "60x90",
+        "price": 36000
+      }
+    ],
+    "imgs": [
+      "assets/products/p27_0.jpg"
+    ]
+  },
+  {
+    "id": "mateo",
+    "name": "Mateo",
+    "desc": "Tusor natural con borde yute",
+    "cat": "tusor",
+    "colors": [
+      "natural",
+      "yute_color"
+    ],
+    "sizes": [
+      {
+        "code": "1820",
+        "size": "50x50",
+        "price": 28500
+      },
+      {
+        "code": "1840",
+        "size": "50x70",
+        "price": 33000
+      },
+      {
+        "code": "1860",
+        "size": "60x80",
+        "price": 36000
+      },
+      {
+        "code": "1870",
+        "size": "60x90",
+        "price": 37000
+      }
+    ],
+    "imgs": [
+      "assets/products/p27_1.jpg"
+    ]
+  },
+  {
+    "id": "traqui",
+    "name": "Tranqui",
+    "desc": "Pintado a mano — formato largo",
+    "cat": "pintado",
+    "colors": [
+      "natural"
+    ],
+    "sizes": [
+      {
+        "code": "2020",
+        "size": "100x40",
+        "price": 38000
+      }
+    ],
+    "imgs": [
+      "assets/products/p28_0.jpg"
+    ]
+  },
+  {
+    "id": "moments",
+    "name": "Moments",
+    "desc": "Pintado a mano",
+    "cat": "pintado",
+    "colors": [
+      "natural"
+    ],
+    "sizes": [
+      {
+        "code": "2070",
+        "size": "50x50",
+        "price": 25500
+      }
+    ],
+    "imgs": [
+      "assets/products/p28_1.jpg"
+    ]
+  },
+  {
+    "id": "xxl",
+    "name": "XXL Rayado",
+    "desc": "Tusor rayado beige o negro — relleno de perlas tergopol, desmontable como lona",
+    "cat": "tusor",
+    "colors": [
+      "beige",
+      "negro"
+    ],
+    "sizes": [
+      {
+        "code": "2080",
+        "size": "110x80",
+        "price": 75000
+      }
+    ],
+    "imgs": [
+      "assets/products/p29_0.jpg",
+      "assets/products/p29_1.jpg"
+    ]
+  }
+];
+
+window.COLOR_HEX = {
+  natural: '#F5F0E8',
+  tostado: '#D4B896',
+  chocolate: '#6B4C3B',
+  negro: '#1A1A1A',
+  verde: '#7A8C6E',
+  beige: '#C4A882',
+  terracota: '#A0522D',
+  gris: '#9E9E9E',
+  rosa: '#E1B6A9',
+  yute_color: '#8B7355'
+};
+
+window.COLOR_NAMES = {
+  natural: 'Natural',
+  tostado: 'Tostado',
+  chocolate: 'Chocolate',
+  negro: 'Negro',
+  verde: 'Verde',
+  beige: 'Beige',
+  terracota: 'Terracota',
+  gris: 'Gris',
+  rosa: 'Rosa',
+  yute_color: 'Yute'
+};
+
+window.CATEGORIES = [
+  ['all', 'Todos'],
+  ['tusor', 'Tusor'],
+  ['tejido', 'Tejido a mano'],
+  ['pana', 'Pana'],
+  ['terciopelo', 'Terciopelo'],
+  ['bordado', 'Bordado'],
+  ['pintado', 'Pintado a mano'],
+  ['yute', 'Yute']
+];

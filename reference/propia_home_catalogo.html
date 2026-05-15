@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propia Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--cream:#F5F0E8;--warm-white:#FAF8F4;--sand:#E8DDD0;--taupe:#C4B5A5;
+--chocolate:#6B4C3B;--sage:#7A8C6E;--rust:#A0522D;--charcoal:#3A3530;
+--text:#3A3530;--text-muted:#8C7B6E;--border:#DDD4C8;
+}
+body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--text);min-height:100vh;display:flex;flex-direction:column}
+
+/* HEADER */
+.header{background:var(--cream);border-bottom:1px solid var(--border);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{text-align:center;line-height:1}
+.logo-top{display:flex;align-items:center;gap:10px}
+.logo-line{width:40px;height:1px;background:var(--charcoal)}
+.logo-propia{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:6px;color:var(--charcoal);text-transform:uppercase}
+.logo-home{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:300;font-style:italic;letter-spacing:4px;color:var(--text-muted);display:block;text-align:center;margin-top:1px}
+.header-right{display:flex;align-items:center;gap:16px}
+.catalog-title{font-size:11px;letter-spacing:3px;color:var(--text-muted);text-transform:uppercase;font-weight:400}
+
+/* CART BTN */
+.cart-btn{background:var(--charcoal);color:var(--cream);border:none;padding:10px 20px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:8px;transition:background 0.2s}
+.cart-btn:hover{background:var(--chocolate)}
+.cart-count{background:var(--rust);color:#fff;border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500}
+
+/* LAYOUT */
+.main-layout{display:flex;flex:1;min-height:0}
+
+/* SIDEBAR */
+.sidebar{width:240px;min-width:240px;background:var(--cream);border-right:1px solid var(--border);padding:28px 20px;overflow-y:auto;position:sticky;top:61px;height:calc(100vh - 61px)}
+.filter-section{margin-bottom:28px}
+.filter-title{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--text-muted);font-weight:500;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.search-input{width:100%;border:1px solid var(--border);background:var(--warm-white);padding:8px 12px;font-family:'Jost',sans-serif;font-size:13px;color:var(--text);outline:none;border-radius:0;transition:border-color 0.2s}
+.search-input:focus{border-color:var(--taupe)}
+.search-input::placeholder{color:var(--text-muted);font-style:italic}
+
+.color-grid{display:flex;flex-wrap:wrap;gap:6px}
+.color-swatch{width:28px;height:28px;border-radius:50%;cursor:pointer;border:2.5px solid transparent;transition:all 0.15s;position:relative}
+.color-swatch.active{border-color:var(--charcoal);transform:scale(1.15)}
+.color-swatch[title]:hover::after{content:attr(title);position:absolute;bottom:34px;left:50%;transform:translateX(-50%);background:var(--charcoal);color:var(--cream);font-size:10px;padding:3px 7px;white-space:nowrap;pointer-events:none;font-family:'Jost',sans-serif}
+
+.size-grid{display:flex;flex-wrap:wrap;gap:5px}
+.size-pill{border:1px solid var(--border);padding:5px 9px;font-size:11px;letter-spacing:1px;cursor:pointer;background:transparent;font-family:'Jost',sans-serif;color:var(--text-muted);transition:all 0.15s}
+.size-pill.active{background:var(--charcoal);color:var(--cream);border-color:var(--charcoal)}
+.size-pill:hover:not(.active){border-color:var(--taupe);color:var(--text)}
+
+.category-list{display:flex;flex-direction:column;gap:4px}
+.cat-btn{background:none;border:none;text-align:left;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:1px;color:var(--text-muted);cursor:pointer;padding:5px 8px;transition:all 0.15s;text-transform:uppercase}
+.cat-btn.active,.cat-btn:hover{color:var(--charcoal);background:var(--sand)}
+
+.clear-btn{width:100%;border:1px solid var(--border);background:none;padding:9px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);cursor:pointer;transition:all 0.2s;margin-top:8px}
+.clear-btn:hover{border-color:var(--charcoal);color:var(--charcoal)}
+
+.price-range{display:flex;flex-direction:column;gap:8px}
+.price-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted)}
+.price-slider{width:100%;accent-color:var(--charcoal)}
+
+/* CATALOG */
+.catalog{flex:1;padding:28px 32px;overflow-y:auto}
+.catalog-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.result-count{font-size:11px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase}
+.sort-select{border:1px solid var(--border);background:var(--cream);padding:7px 12px;font-family:'Jost',sans-serif;font-size:12px;color:var(--text);outline:none;cursor:pointer}
+
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px}
+
+/* PRODUCT CARD */
+.product-card{background:var(--warm-white);border:1px solid var(--border);transition:all 0.2s;cursor:pointer;position:relative;overflow:hidden}
+.product-card:hover{border-color:var(--taupe);transform:translateY(-2px);box-shadow:0 4px 20px rgba(100,80,60,0.08)}
+.card-img{width:100%;aspect-ratio:1;background:var(--sand);overflow:hidden;position:relative}
+.card-img-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;flex-direction:column;gap:6px;transition:transform 0.3s}
+.product-card:hover .card-img-inner{transform:scale(1.04)}
+.card-pattern{width:60px;height:60px;opacity:0.4;margin-bottom:4px}
+.card-body{padding:12px 14px}
+.card-name{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:500;color:var(--charcoal);margin-bottom:4px}
+.card-desc{font-size:11px;color:var(--text-muted);letter-spacing:0.5px;line-height:1.5;margin-bottom:8px;height:32px;overflow:hidden}
+.card-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.card-sizes{display:flex;gap:4px;flex-wrap:wrap}
+.size-tag{font-size:9px;letter-spacing:1px;color:var(--text-muted);border:1px solid var(--border);padding:2px 5px}
+.card-colors{display:flex;gap:3px}
+.color-dot{width:10px;height:10px;border-radius:50%;border:1px solid rgba(0,0,0,0.1)}
+.card-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:10px}
+.card-price{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--charcoal)}
+.card-price span{font-size:11px;font-weight:300;font-family:'Jost',sans-serif;color:var(--text-muted);margin-left:2px}
+
+.add-btn{background:none;border:1px solid var(--charcoal);padding:6px 10px;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--charcoal);cursor:pointer;transition:all 0.15s}
+.add-btn:hover{background:var(--charcoal);color:var(--cream)}
+
+/* SIZE SELECTOR IN CARD */
+.size-select{border:1px solid var(--border);background:var(--cream);padding:4px 6px;font-family:'Jost',sans-serif;font-size:11px;color:var(--text);outline:none;max-width:100px}
+
+/* EMPTY STATE */
+.empty-state{grid-column:1/-1;text-align:center;padding:60px 20px}
+.empty-state p{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--text-muted);font-style:italic}
+.empty-state small{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--taupe);display:block;margin-top:8px}
+
+/* CART DRAWER */
+.cart-overlay{position:fixed;inset:0;background:rgba(58,53,48,0.4);z-index:200;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.cart-overlay.open{opacity:1;pointer-events:all}
+.cart-drawer{position:fixed;right:0;top:0;height:100vh;width:380px;background:var(--warm-white);z-index:201;transform:translateX(100%);transition:transform 0.3s ease;display:flex;flex-direction:column;overflow:hidden}
+.cart-drawer.open{transform:translateX(0)}
+.cart-header{padding:24px 24px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--cream)}
+.cart-header h2{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--charcoal)}
+.close-btn{background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-muted);line-height:1;padding:4px 8px;transition:color 0.15s}
+.close-btn:hover{color:var(--charcoal)}
+.cart-body{flex:1;overflow-y:auto;padding:16px 24px}
+.cart-empty{text-align:center;padding:40px 0;font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--text-muted);font-style:italic}
+
+.cart-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.cart-item-color{width:36px;height:36px;min-width:36px;background:var(--sand);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:10px;color:var(--text-muted)}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-name{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:500;color:var(--charcoal)}
+.cart-item-meta{font-size:11px;color:var(--text-muted);margin-top:2px}
+.cart-item-controls{display:flex;align-items:center;gap:8px;margin-top:6px}
+.qty-btn{background:none;border:1px solid var(--border);width:22px;height:22px;cursor:pointer;font-size:14px;color:var(--text);display:flex;align-items:center;justify-content:center;transition:all 0.15s}
+.qty-btn:hover{border-color:var(--charcoal);background:var(--sand)}
+.qty-val{font-size:13px;min-width:20px;text-align:center;font-weight:500}
+.cart-item-price{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:500;color:var(--charcoal);white-space:nowrap}
+.remove-item{background:none;border:none;color:var(--taupe);cursor:pointer;font-size:16px;padding:2px;margin-left:4px;transition:color 0.15s}
+.remove-item:hover{color:var(--rust)}
+
+.cart-footer{padding:16px 24px 24px;border-top:1px solid var(--border);background:var(--cream)}
+.cart-total-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.cart-total-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted)}
+.cart-total-amount{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--charcoal)}
+.cart-item-count{font-size:11px;color:var(--text-muted);margin-bottom:14px}
+.presupuesto-btn{width:100%;background:var(--charcoal);color:var(--cream);border:none;padding:14px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:background 0.2s;margin-bottom:8px}
+.presupuesto-btn:hover{background:var(--chocolate)}
+.whatsapp-btn{width:100%;background:#25D366;color:#fff;border:none;padding:12px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:background 0.2s}
+.whatsapp-btn:hover{background:#1fb855}
+.note-text{font-size:10px;color:var(--text-muted);text-align:center;margin-top:8px;letter-spacing:0.5px}
+
+/* PRESUPUESTO MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(58,53,48,0.6);z-index:300;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--warm-white);max-width:520px;width:100%;max-height:80vh;overflow-y:auto;padding:32px}
+.modal-logo{text-align:center;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px}
+.modal-brand{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--charcoal)}
+.modal-date{font-size:11px;color:var(--text-muted);margin-top:4px}
+.modal-items{margin-bottom:20px}
+.modal-item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px}
+.modal-item-name{color:var(--charcoal)}
+.modal-item-detail{color:var(--text-muted);font-size:11px;margin-top:2px}
+.modal-item-price{font-weight:500;color:var(--charcoal)}
+.modal-subtotal,.modal-total{display:flex;justify-content:space-between;padding:8px 0}
+.modal-subtotal{font-size:12px;color:var(--text-muted)}
+.modal-total{border-top:2px solid var(--charcoal);margin-top:8px;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--charcoal)}
+.modal-note{font-size:11px;color:var(--text-muted);text-align:center;margin-top:16px;line-height:1.6;font-style:italic}
+.modal-close{display:block;width:100%;margin-top:20px;background:none;border:1px solid var(--border);padding:12px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;color:var(--text-muted);transition:all 0.2s}
+.modal-close:hover{border-color:var(--charcoal);color:var(--charcoal)}
+
+/* SVG patterns */
+.pat-check{stroke:var(--chocolate);fill:none;stroke-width:1.5}
+.pat-lines{stroke:var(--chocolate);fill:none;stroke-width:1.5}
+.pat-solid{fill:var(--taupe)}
+.pat-weave{stroke:var(--rust);fill:none;stroke-width:1}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div style="width:120px"></div>
+  <div class="logo">
+    <div class="logo-top">
+      <div class="logo-line"></div>
+      <span class="logo-propia">Propia</span>
+      <div class="logo-line"></div>
+    </div>
+    <span class="logo-home">home</span>
+  </div>
+  <div class="header-right">
+    <span class="catalog-title">Catálogo Dic. 2025</span>
+    <button class="cart-btn" onclick="toggleCart()">
+      <span>Canasta</span>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<div class="main-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="filter-section">
+      <div class="filter-title">Buscar</div>
+      <input class="search-input" type="text" placeholder="Nombre del almohadón..." id="searchInput" oninput="applyFilters()">
+    </div>
+
+    <div class="filter-section">
+      <div class="filter-title">Categoría</div>
+      <div class="category-list" id="categoryList">
+        <button class="cat-btn active" onclick="selectCat(this,'all')">Todos</button>
+        <button class="cat-btn" onclick="selectCat(this,'tusor')">Tusor</button>
+        <button class="cat-btn" onclick="selectCat(this,'tejido')">Tejido a mano</button>
+        <button class="cat-btn" onclick="selectCat(this,'pana')">Pana</button>
+        <button class="cat-btn" onclick="selectCat(this,'terciopelo')">Terciopelo</button>
+        <button class="cat-btn" onclick="selectCat(this,'bordado')">Bordado</button>
+        <button class="cat-btn" onclick="selectCat(this,'pintado')">Pintado a mano</button>
+        <button class="cat-btn" onclick="selectCat(this,'yute')">Yute</button>
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <div class="filter-title">Colores disponibles</div>
+      <div class="color-grid" id="colorFilters">
+        <div class="color-swatch active" style="background:#F5F0E8;border-color:var(--border)" title="Natural" onclick="toggleColor(this,'natural')"></div>
+        <div class="color-swatch" style="background:#D4B896" title="Tostado/Camel" onclick="toggleColor(this,'tostado')"></div>
+        <div class="color-swatch" style="background:#6B4C3B" title="Chocolate" onclick="toggleColor(this,'chocolate')"></div>
+        <div class="color-swatch" style="background:#1A1A1A" title="Negro" onclick="toggleColor(this,'negro')"></div>
+        <div class="color-swatch" style="background:#7A8C6E" title="Verde/Sage" onclick="toggleColor(this,'verde')"></div>
+        <div class="color-swatch" style="background:#C4A882" title="Beige/Arena" onclick="toggleColor(this,'beige')"></div>
+        <div class="color-swatch" style="background:#A0522D" title="Terracota" onclick="toggleColor(this,'terracota')"></div>
+        <div class="color-swatch" style="background:#9E9E9E" title="Gris" onclick="toggleColor(this,'gris')"></div>
+        <div class="color-swatch" style="background:#C28080" title="Rosa" onclick="toggleColor(this,'rosa')"></div>
+        <div class="color-swatch" style="background:#8B7355" title="Yute/Habano" onclick="toggleColor(this,'yute_color')"></div>
+      </div>
+      <div style="font-size:10px;color:var(--text-muted);margin-top:8px;font-style:italic">Seleccioná para filtrar por color</div>
+    </div>
+
+    <div class="filter-section">
+      <div class="filter-title">Medida</div>
+      <div class="size-grid" id="sizeFilters"></div>
+    </div>
+
+    <div class="filter-section">
+      <div class="filter-title">Precio máximo</div>
+      <div class="price-range">
+        <input type="range" class="price-slider" id="priceSlider" min="25000" max="80000" value="80000" step="500" oninput="updatePriceLabel();applyFilters()">
+        <div class="price-labels">
+          <span>$25.000</span>
+          <span id="priceLabel" style="font-weight:500;color:var(--charcoal)">$80.000</span>
+        </div>
+      </div>
+    </div>
+
+    <button class="clear-btn" onclick="clearFilters()">✕ Limpiar filtros</button>
+  </aside>
+
+  <!-- CATALOG -->
+  <main class="catalog">
+    <div class="catalog-header">
+      <span class="result-count" id="resultCount">0 productos</span>
+      <select class="sort-select" onchange="applyFilters()">
+        <option value="default">Ordenar por defecto</option>
+        <option value="price-asc">Precio: menor a mayor</option>
+        <option value="price-desc">Precio: mayor a menor</option>
+        <option value="name-asc">Nombre A–Z</option>
+      </select>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+  </main>
+</div>
+
+<!-- CART OVERLAY & DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h2>Tu canasta</h2>
+    <button class="close-btn" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty">Tu canasta está vacía.<br><small style="font-size:11px;font-style:normal;letter-spacing:1px">Agregá almohadones para armar tu pedido</small></div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Total estimado</span>
+      <span class="cart-total-amount" id="cartTotal">$0</span>
+    </div>
+    <div class="cart-item-count" id="cartItemCount">0 artículos</div>
+    <button class="presupuesto-btn" onclick="showPresupuesto()">Ver presupuesto completo</button>
+    <button class="whatsapp-btn" onclick="sendWhatsapp()">Consultar por WhatsApp</button>
+    <p class="note-text">* Precios incluyen funda + relleno. Catálogo Dic. 2025</p>
+  </div>
+</div>
+
+<!-- PRESUPUESTO MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-logo">
+      <div class="modal-title">Presupuesto</div>
+      <div class="modal-brand">Propia Home</div>
+      <div class="modal-date" id="modalDate"></div>
+    </div>
+    <div class="modal-items" id="modalItems"></div>
+    <div class="modal-note">* Los precios son de funda + relleno. Sujeto a disponibilidad de stock. Catálogo Diciembre 2025.</div>
+    <button class="modal-close" onclick="closeModal()">Cerrar presupuesto</button>
+  </div>
+</div>
+
+<script>
+const PRODUCTS = [
+  {id:'ceferino',name:'Ceferino',desc:'Tusor natural, recortes pestañas cuadros a contratono',cat:'tusor',pattern:'check',colors:['negro','tostado','chocolate'],sizes:[{code:'120',size:'50x50',price:28500},{code:'121',size:'60x60',price:30500}]},
+  {id:'cristobal',name:'Cristóbal',desc:'Tusor natural, recortes pestañas líneas a contratono',cat:'tusor',pattern:'lines',colors:['negro','tostado','chocolate'],sizes:[{code:'130',size:'50x50',price:28500},{code:'131',size:'50x70',price:30500}]},
+  {id:'eliseo',name:'Eliseo',desc:'Tejido a mano en hilo de algodón natural',cat:'tejido',pattern:'weave',colors:['natural'],sizes:[{code:'140',size:'30x50',price:28000}]},
+  {id:'fermin',name:'Fermín',desc:'Tejido a mano en yute, con pestaña en tusor negro',cat:'yute',pattern:'weave',colors:['yute_color','negro'],sizes:[{code:'141',size:'40x60',price:37000},{code:'142',size:'50x50',price:37000},{code:'143',size:'60x60',price:41000}]},
+  {id:'honorio',name:'Honorio',desc:'Tejido a mano en yute',cat:'yute',pattern:'weave',colors:['yute_color'],sizes:[{code:'144',size:'40x60',price:31500}]},
+  {id:'bartolome',name:'Bartolomé',desc:'Tejido a mano en yute, bordado en lana negra',cat:'yute',pattern:'weave',colors:['yute_color','negro'],sizes:[{code:'145-0',size:'40x60',price:39000},{code:'145-1',size:'50x50',price:39000},{code:'145-2',size:'60x60',price:43500}]},
+  {id:'timoteo',name:'Timoteo',desc:'Tejido a mano en hilo de algodón',cat:'tejido',pattern:'weave',colors:['terracota','chocolate'],sizes:[{code:'146',size:'40x60',price:31500}]},
+  {id:'hortensio',name:'Hortensio',desc:'Tusor natural con centro tejido a mano en yute',cat:'tusor',pattern:'check',colors:['natural','yute_color'],sizes:[{code:'147',size:'40x60',price:29000}]},
+  {id:'pancho',name:'Pancho',desc:'Tejido a mano en yute',cat:'yute',pattern:'weave',colors:['yute_color'],sizes:[{code:'148-0',size:'50x50',price:34000},{code:'148-1',size:'60x60',price:36500}]},
+  {id:'alejo',name:'Alejo',desc:'Con borde tejido a mano en yute',cat:'yute',pattern:'solid',colors:['verde','gris','negro'],sizes:[{code:'149',size:'50x50',price:28500}]},
+  {id:'facundo',name:'Facundo',desc:'Tusor natural, 3 tiras de flecos hechos a mano, lentejuelas',cat:'tusor',pattern:'lines',colors:['natural'],sizes:[{code:'150',size:'40x60',price:28500}]},
+  {id:'teodoro',name:'Teodoro',desc:'Tusor natural con flecos y borlas en hilo de algodón',cat:'tusor',pattern:'lines',colors:['natural'],sizes:[{code:'160',size:'120x30',price:40500}]},
+  {id:'antonio',name:'Antonio',desc:'Tusor natural, flecos en rombos y borlas hechos a mano',cat:'tusor',pattern:'lines',colors:['natural'],sizes:[{code:'165',size:'40x60',price:36500}]},
+  {id:'braulio',name:'Braulio',desc:'Tusor chocolate con borde flecos algodón natural',cat:'tusor',pattern:'solid',colors:['chocolate'],sizes:[{code:'170',size:'40x60',price:29000},{code:'171',size:'50x50',price:29000},{code:'172',size:'50x70',price:33800},{code:'173',size:'60x80',price:36800}]},
+  {id:'serafin',name:'Serafín',desc:'Frente en pana de algodón antimanchas beige, borde tejido a mano',cat:'pana',pattern:'solid',colors:['beige'],sizes:[{code:'180',size:'40x60',price:37900}]},
+  {id:'pascual',name:'Pascual',desc:'Tusor natural, flecos y borlas hechos a mano en hilo de algodón',cat:'tusor',pattern:'lines',colors:['natural'],sizes:[{code:'190',size:'40x60',price:32000}]},
+  {id:'romeo',name:'Romeo',desc:'Tusor natural pintado a mano',cat:'pintado',pattern:'lines',colors:['negro','beige'],sizes:[{code:'1050',size:'55x55',price:28500}]},
+  {id:'rosendo',name:'Rosendo',desc:'Tusor natural pintado a mano en negro o beige',cat:'pintado',pattern:'lines',colors:['negro','beige'],sizes:[{code:'1060',size:'100x40',price:38500}]},
+  {id:'santiago',name:'Santiago',desc:'Tusor natural pintado a mano en negro o beige',cat:'pintado',pattern:'lines',colors:['negro','beige'],sizes:[{code:'1100',size:'50x50',price:26000},{code:'1110',size:'50x70',price:30000}]},
+  {id:'pablo',name:'Pablo',desc:'Tussor natural pintado a mano en negro o beige',cat:'pintado',pattern:'lines',colors:['negro','beige'],sizes:[{code:'1200',size:'50x50',price:26000},{code:'1210',size:'50x70',price:30000}]},
+  {id:'rafael',name:'Rafael',desc:'Frente tusor rayado chocolate/natural, dorso gasa chocolate',cat:'tusor',pattern:'lines',colors:['chocolate','natural'],sizes:[{code:'1220',size:'40x60',price:31500},{code:'1221',size:'55x55',price:32500},{code:'1222',size:'50x70',price:35000},{code:'1223',size:'60x80',price:37500}]},
+  {id:'gregorio',name:'Gregorio',desc:'Tusor rayado — verde o chocolate',cat:'tusor',pattern:'lines',colors:['verde','chocolate'],sizes:[{code:'1230',size:'40x60',price:27500},{code:'1231',size:'50x50',price:27500},{code:'1232',size:'50x70',price:32000},{code:'1233',size:'60x80',price:34000}]},
+  {id:'cristiano',name:'Cristiano',desc:'Rayas anchas marrones con bordes desflecados',cat:'tusor',pattern:'lines',colors:['chocolate'],sizes:[{code:'1240',size:'40x60',price:27500},{code:'1241',size:'55x55',price:29000},{code:'1242',size:'50x70',price:32000}]},
+  {id:'conrado',name:'Conrado',desc:'Frente tusor rayado con pestaña 1cm en bordes — rojo o gris',cat:'tusor',pattern:'lines',colors:['gris'],sizes:[{code:'1250',size:'40x60',price:27500},{code:'1251',size:'50x50',price:27500},{code:'1252',size:'50x70',price:32000}]},
+  {id:'felipe',name:'Felipe',desc:'Franja centro a rayas — rojo o gris',cat:'tusor',pattern:'lines',colors:['gris'],sizes:[{code:'1260',size:'40x60',price:27500},{code:'1261',size:'50x50',price:27500},{code:'1262',size:'50x70',price:32000},{code:'1263',size:'60x80',price:34000}]},
+  {id:'caetano',name:'Caetano',desc:'Frente en tusor a cuadros negros — color natural',cat:'tusor',pattern:'check',colors:['natural','negro'],sizes:[{code:'1280',size:'50x50',price:27500},{code:'1281',size:'50x70',price:32000},{code:'1282',size:'60x80',price:34000},{code:'1283',size:'60x90',price:36000}]},
+  {id:'raymundo',name:'Raymundo',desc:'Frente a rayas — negro, camel, gris o visón',cat:'tusor',pattern:'lines',colors:['negro','tostado','gris'],sizes:[{code:'1290',size:'40x60',price:28500},{code:'1291',size:'50x50',price:28500},{code:'1292',size:'50x70',price:32000},{code:'1293',size:'60x80',price:34000}]},
+  {id:'torcuato',name:'Torcuato',desc:'Frente en tusor a cuadros — negro, beige, habano o verde',cat:'tusor',pattern:'check',colors:['negro','beige','tostado','verde'],sizes:[{code:'1300',size:'50x50',price:28500},{code:'1310',size:'50x70',price:32000},{code:'1320',size:'60x80',price:34000},{code:'1330',size:'60x90',price:36000}]},
+  {id:'faustino',name:'Faustino',desc:'Frente en tusor con volados — cuadros habano/verde o rayas terracota',cat:'tusor',pattern:'check',colors:['tostado','verde','terracota'],sizes:[{code:'FA1',size:'50x50',price:31000},{code:'FA2',size:'50x70',price:34500},{code:'FA3',size:'60x80',price:38000}]},
+  {id:'placido',name:'Plácido',desc:'Centro en pana antimanchas color con pestañas negras',cat:'pana',pattern:'solid',colors:['beige','tostado','chocolate','verde','gris'],sizes:[{code:'1420',size:'40x60',price:28500},{code:'1421',size:'50x50',price:28500},{code:'1422',size:'50x70',price:31000}]},
+  {id:'carmelo',name:'Carmelo',desc:'Frente en pana de algodón antimanchas',cat:'pana',pattern:'solid',colors:['beige','tostado','rosa','verde','gris'],sizes:[{code:'1400',size:'40x60',price:35000},{code:'1430',size:'50x50',price:35000},{code:'1431',size:'50x70',price:39500},{code:'1432',size:'60x80',price:45000}]},
+  {id:'simonxl',name:'Simón XL',desc:'Frente de pana algodón antimanchas — formato largo',cat:'pana',pattern:'solid',colors:['beige','tostado','verde','rosa','gris'],sizes:[{code:'1435',size:'100x40',price:49500}]},
+  {id:'tomas',name:'Tomás',desc:'Centro pana algodón antimanchas',cat:'pana',pattern:'solid',colors:['tostado','beige','verde','rosa','gris'],sizes:[{code:'1440',size:'40x60',price:27000},{code:'1445',size:'50x70',price:29500}]},
+  {id:'hipolito',name:'Hipólito',desc:'Frente en terciopelo verde oliva, chocolate o negro',cat:'terciopelo',pattern:'solid',colors:['verde','chocolate','negro'],sizes:[{code:'1450',size:'40x60',price:29000},{code:'1451',size:'50x50',price:29000},{code:'1452',size:'50x70',price:31500},{code:'1453',size:'60x80',price:36000}]},
+  {id:'florencio',name:'Florencio',desc:'Frente en terciopelo chocolate con línea pana beige',cat:'terciopelo',pattern:'solid',colors:['chocolate','beige'],sizes:[{code:'1455',size:'40x60',price:31000},{code:'1456',size:'50x50',price:31000}]},
+  {id:'tristan',name:'Tristán',desc:'Frente en terciopelo chocolate con centro pana negro',cat:'terciopelo',pattern:'solid',colors:['chocolate','negro'],sizes:[{code:'1457',size:'40x60',price:31000},{code:'1458',size:'50x50',price:31000}]},
+  {id:'cayetano',name:'Cayetano',desc:'Con borde 2cm pana negro o tostado',cat:'terciopelo',pattern:'solid',colors:['negro','tostado'],sizes:[{code:'1460',size:'50x50',price:32500},{code:'1461',size:'60x60',price:34500},{code:'1462',size:'60x80',price:38500},{code:'1463',size:'60x90',price:40000}]},
+  {id:'cecilio',name:'Cecilio',desc:'Con pestaña pana negro o tostado',cat:'terciopelo',pattern:'solid',colors:['negro','tostado'],sizes:[{code:'1465',size:'40x60',price:27000},{code:'1446',size:'50x50',price:27000}]},
+  {id:'constantino',name:'Constantino',desc:'Pana antimanchas tostado o beige, con pestañas en negro',cat:'pana',pattern:'solid',colors:['tostado','beige','negro'],sizes:[{code:'1470',size:'40x60',price:36500},{code:'1471',size:'50x50',price:36500}]},
+  {id:'beltran',name:'Beltrán',desc:'Pana antimanchas beige con centro chocolate',cat:'pana',pattern:'solid',colors:['beige','chocolate'],sizes:[{code:'1475',size:'40x60',price:36500},{code:'1476',size:'50x50',price:36500}]},
+  {id:'camilo',name:'Camilo',desc:'Tusor a cuadros con pestaña en terciopelo negro o verde seco',cat:'tusor',pattern:'check',colors:['negro','verde'],sizes:[{code:'1480',size:'50x50',price:30500},{code:'1481',size:'50x70',price:32000},{code:'1482',size:'60x80',price:36000}]},
+  {id:'lorenzo',name:'Lorenzo',desc:'Con pestaña en algodón con lino — gris o beige',cat:'tusor',pattern:'solid',colors:['gris','beige'],sizes:[{code:'1490',size:'50x50',price:26500},{code:'1492',size:'50x70',price:30000}]},
+  {id:'jeremias',name:'Jeremías',desc:'Tusor con rayas lino mezcla — café o arena',cat:'tusor',pattern:'lines',colors:['tostado','beige'],sizes:[{code:'1500a',size:'50x70',price:30500},{code:'1500b',size:'60x80',price:33500}]},
+  {id:'fausto',name:'Fausto',desc:'Con centro flecos hechos a mano',cat:'tejido',pattern:'lines',colors:['natural'],sizes:[{code:'1510',size:'50x50',price:32000}]},
+  {id:'fran',name:'Fran',desc:'Centro flecos hechos a mano y lentejuela (plata o dorada)',cat:'tejido',pattern:'lines',colors:['natural'],sizes:[{code:'1530',size:'30x50',price:26000}]},
+  {id:'amancio',name:'Amancio',desc:'Bordado a mano con lana negra o beige',cat:'bordado',pattern:'check',colors:['negro','beige'],sizes:[{code:'1600',size:'50x50',price:32000},{code:'1610',size:'40x60',price:32000},{code:'1620',size:'50x70',price:36000}]},
+  {id:'benicio',name:'Benicio',desc:'Tusor tostado o natural, bordado a mano con lana negra',cat:'bordado',pattern:'check',colors:['tostado','natural'],sizes:[{code:'1650',size:'50x50',price:30500}]},
+  {id:'rogelio',name:'Rogelio',desc:'Tusor natural, bordado a mano con lana beige',cat:'bordado',pattern:'check',colors:['natural','beige'],sizes:[{code:'1660',size:'50x50',price:30500}]},
+  {id:'federico',name:'Federico',desc:'Gasa doble gris o arena, con aplique casa bordada a mano',cat:'bordado',pattern:'lines',colors:['gris','beige'],sizes:[{code:'1670',size:'40x60',price:30000},{code:'1671',size:'50x50',price:30000}]},
+  {id:'lautaro',name:'Lautaro',desc:'Funda tubo en algodón con lino bordado a mano',cat:'bordado',pattern:'lines',colors:['gris','beige'],sizes:[{code:'1680',size:'40x80',price:37500}]},
+  {id:'benito',name:'Benito',desc:'Bordado a mano en yute o en negro, con flecos',cat:'bordado',pattern:'weave',colors:['yute_color','negro'],sizes:[{code:'1700',size:'50x50',price:32000}]},
+  {id:'pedro',name:'Pedro Color',desc:'Multiples colores disponibles',cat:'tusor',pattern:'solid',colors:['natural','beige','rosa','terracota','tostado','verde','gris'],sizes:[{code:'1800',size:'50x50',price:27500},{code:'1810',size:'50x70',price:31000},{code:'1815',size:'60x80',price:35000},{code:'1816',size:'60x90',price:36000}]},
+  {id:'mateo',name:'Mateo',desc:'Tusor natural con borde yute',cat:'tusor',pattern:'weave',colors:['natural','yute_color'],sizes:[{code:'1820',size:'50x50',price:28500},{code:'1840',size:'50x70',price:33000},{code:'1860',size:'60x80',price:36000},{code:'1870',size:'60x90',price:37000}]},
+  {id:'traqui',name:'"Tranqui"',desc:'Pintado a mano — formato largo',cat:'pintado',pattern:'lines',colors:['natural'],sizes:[{code:'2020',size:'100x40',price:38000}]},
+  {id:'moments',name:'"Moments"',desc:'Pintado a mano',cat:'pintado',pattern:'lines',colors:['natural'],sizes:[{code:'2070',size:'50x50',price:25500}]},
+  {id:'xxl',name:'XXL Rayado',desc:'Tusor rayado beige o negro — con relleno de perlas tergopol, desmontable como lona',cat:'tusor',pattern:'lines',colors:['beige','negro'],sizes:[{code:'2080',size:'110x80',price:75000}]},
+];
+
+const COLOR_HEX = {natural:'#F5F0E8',tostado:'#D4B896',chocolate:'#6B4C3B',negro:'#1A1A1A',verde:'#7A8C6E',beige:'#C4A882',terracota:'#A0522D',gris:'#9E9E9E',rosa:'#C28080',yute_color:'#8B7355'};
+
+let cart = [];
+let activeColors = [];
+let activeSize = null;
+let activeCat = 'all';
+
+function getAllSizes(){
+  const s=new Set();
+  PRODUCTS.forEach(p=>p.sizes.forEach(sz=>s.add(sz.size)));
+  return Array.from(s).sort((a,b)=>{
+    const [aw,ah]=a.split('x').map(Number);
+    const [bw,bh]=b.split('x').map(Number);
+    return (aw*ah)-(bw*bh);
+  });
+}
+
+function buildSizeFilters(){
+  const el=document.getElementById('sizeFilters');
+  getAllSizes().forEach(sz=>{
+    const b=document.createElement('button');
+    b.className='size-pill';
+    b.textContent=sz;
+    b.onclick=()=>toggleSize(b,sz);
+    el.appendChild(b);
+  });
+}
+
+function toggleColor(el,color){
+  if(color==='natural'&&activeColors.length===0)return;
+  el.classList.toggle('active');
+  if(el.classList.contains('active')){
+    if(!activeColors.includes(color))activeColors.push(color);
+  }else{
+    activeColors=activeColors.filter(c=>c!==color);
+  }
+  applyFilters();
+}
+
+function toggleSize(el,sz){
+  document.querySelectorAll('.size-pill').forEach(b=>b.classList.remove('active'));
+  if(activeSize===sz){activeSize=null;}
+  else{activeSize=sz;el.classList.add('active');}
+  applyFilters();
+}
+
+function selectCat(el,cat){
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  activeCat=cat;
+  applyFilters();
+}
+
+function updatePriceLabel(){
+  const v=parseInt(document.getElementById('priceSlider').value);
+  document.getElementById('priceLabel').textContent='$'+v.toLocaleString('es-AR');
+}
+
+function getMinPrice(p){return Math.min(...p.sizes.map(s=>s.price));}
+
+function applyFilters(){
+  const query=document.getElementById('searchInput').value.toLowerCase().trim();
+  const maxPrice=parseInt(document.getElementById('priceSlider').value);
+  const sortVal=document.querySelector('.sort-select').value;
+  
+  let filtered=PRODUCTS.filter(p=>{
+    if(query&&!p.name.toLowerCase().includes(query)&&!p.desc.toLowerCase().includes(query))return false;
+    if(activeCat!=='all'&&p.cat!==activeCat)return false;
+    if(activeColors.length>0&&!activeColors.some(c=>p.colors.includes(c)))return false;
+    if(activeSize&&!p.sizes.some(s=>s.size===activeSize))return false;
+    if(getMinPrice(p)>maxPrice)return false;
+    return true;
+  });
+
+  if(sortVal==='price-asc')filtered.sort((a,b)=>getMinPrice(a)-getMinPrice(b));
+  else if(sortVal==='price-desc')filtered.sort((a,b)=>getMinPrice(b)-getMinPrice(a));
+  else if(sortVal==='name-asc')filtered.sort((a,b)=>a.name.localeCompare(b.name));
+
+  renderGrid(filtered);
+  document.getElementById('resultCount').textContent=filtered.length+' producto'+(filtered.length!==1?'s':'');
+}
+
+function getPattern(pat){
+  if(pat==='check')return`<svg width="50" height="50" viewBox="0 0 50 50"><rect x="2" y="2" width="46" height="46" fill="none" stroke="#C4B5A5" stroke-width="1"/><line x1="2" y1="18" x2="48" y2="18" stroke="#A09080" stroke-width="1.5"/><line x1="2" y1="32" x2="48" y2="32" stroke="#A09080" stroke-width="1.5"/><line x1="18" y1="2" x2="18" y2="48" stroke="#A09080" stroke-width="1.5"/><line x1="32" y1="2" x2="32" y2="48" stroke="#A09080" stroke-width="1.5"/></svg>`;
+  if(pat==='lines')return`<svg width="50" height="50" viewBox="0 0 50 50"><rect x="2" y="2" width="46" height="46" fill="none" stroke="#C4B5A5" stroke-width="1"/><line x1="2" y1="15" x2="48" y2="15" stroke="#A09080" stroke-width="2"/><line x1="2" y1="25" x2="48" y2="25" stroke="#A09080" stroke-width="2"/><line x1="2" y1="35" x2="48" y2="35" stroke="#A09080" stroke-width="2"/></svg>`;
+  if(pat==='weave')return`<svg width="50" height="50" viewBox="0 0 50 50"><rect x="2" y="2" width="46" height="46" fill="none" stroke="#C4B5A5" stroke-width="1"/>${Array.from({length:8},(_,i)=>`<line x1="2" y1="${6+i*6}" x2="48" y2="${6+i*6}" stroke="#9E8B78" stroke-width="0.8"/>`).join('')}${Array.from({length:8},(_,i)=>`<line x1="${6+i*6}" y1="2" x2="${6+i*6}" y2="48" stroke="#9E8B78" stroke-width="0.8"/>`).join('')}</svg>`;
+  return`<svg width="50" height="50" viewBox="0 0 50 50"><rect x="2" y="2" width="46" height="46" fill="#DDD4C8" stroke="#C4B5A5" stroke-width="1"/><rect x="12" y="12" width="26" height="26" fill="#C4B5A5"/></svg>`;
+}
+
+function renderGrid(products){
+  const grid=document.getElementById('productGrid');
+  if(products.length===0){
+    grid.innerHTML='<div class="empty-state"><p>Sin resultados para esa búsqueda</p><small>Probá con otros filtros</small></div>';
+    return;
+  }
+  grid.innerHTML=products.map(p=>{
+    const minP=getMinPrice(p);
+    const maxP=Math.max(...p.sizes.map(s=>s.price));
+    const priceStr=minP===maxP?'$'+minP.toLocaleString('es-AR'):'$'+minP.toLocaleString('es-AR')+' – $'+maxP.toLocaleString('es-AR');
+    const sizeSel=p.sizes.length>1
+      ?`<select class="size-select" id="sel-${p.id}">${p.sizes.map(s=>`<option value="${s.code}:${s.size}:${s.price}">${s.size} — $${s.price.toLocaleString('es-AR')}</option>`).join('')}</select>`
+      :`<span class="size-tag">${p.sizes[0].size}</span>`;
+    const colorDots=p.colors.slice(0,5).map(c=>`<div class="color-dot" style="background:${COLOR_HEX[c]||'#ccc'}" title="${c}"></div>`).join('');
+    return`<div class="product-card">
+      <div class="card-img">
+        <div class="card-img-inner">
+          ${getPattern(p.pattern)}
+          <span style="font-size:9px;letter-spacing:2px;color:var(--text-muted)">${p.name.toUpperCase()}</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">${p.name}</div>
+        <div class="card-desc">${p.desc}</div>
+        <div class="card-meta">
+          ${sizeSel}
+          <div class="card-colors">${colorDots}</div>
+        </div>
+        <div class="card-footer">
+          <div class="card-price">${priceStr}</div>
+          <button class="add-btn" onclick="addToCart('${p.id}')">+ Agregar</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function addToCart(id){
+  const p=PRODUCTS.find(x=>x.id===id);
+  if(!p)return;
+  let size=p.sizes[0],code=p.sizes[0].code;
+  if(p.sizes.length>1){
+    const sel=document.getElementById('sel-'+id);
+    if(sel){
+      const parts=sel.value.split(':');
+      code=parts[0];size={code:parts[0],size:parts[1],price:parseInt(parts[2])};
+    }
+  }
+  const key=id+'-'+size.size;
+  const existing=cart.find(c=>c.key===key);
+  if(existing){existing.qty++;}
+  else{cart.push({key,id,name:p.name,size:size.size,price:size.price,qty:1,colors:p.colors});}
+  updateCartUI();
+  const btn=event.currentTarget;
+  btn.textContent='✓ Agregado';
+  btn.style.background='var(--sage)';btn.style.color='#fff';btn.style.borderColor='var(--sage)';
+  setTimeout(()=>{btn.textContent='+ Agregar';btn.style.background='';btn.style.color='';btn.style.borderColor='';},1200);
+}
+
+function updateCartUI(){
+  const total=cart.reduce((s,c)=>s+c.price*c.qty,0);
+  const count=cart.reduce((s,c)=>s+c.qty,0);
+  document.getElementById('cartCount').textContent=count;
+  document.getElementById('cartTotal').textContent='$'+total.toLocaleString('es-AR');
+  document.getElementById('cartItemCount').textContent=count+' artículo'+(count!==1?'s':'');
+  
+  const body=document.getElementById('cartBody');
+  if(cart.length===0){
+    body.innerHTML='<div class="cart-empty">Tu canasta está vacía.<br><small style="font-size:11px;font-style:normal;letter-spacing:1px">Agregá almohadones para armar tu pedido</small></div>';
+    return;
+  }
+  body.innerHTML=cart.map((item,i)=>{
+    const col=item.colors[0];
+    const dot=COLOR_HEX[col]||'#C4B5A5';
+    return`<div class="cart-item">
+      <div class="cart-item-color" style="background:${dot}20;border:1px solid ${dot}40">
+        <div style="width:20px;height:20px;border-radius:50%;background:${dot}"></div>
+      </div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-meta">${item.size} cm</div>
+        <div class="cart-item-controls">
+          <button class="qty-btn" onclick="changeQty(${i},-1)">−</button>
+          <span class="qty-val">${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty(${i},1)">+</button>
+          <button class="remove-item" onclick="removeItem(${i})">✕</button>
+        </div>
+      </div>
+      <div class="cart-item-price">$${(item.price*item.qty).toLocaleString('es-AR')}</div>
+    </div>`;
+  }).join('');
+}
+
+function changeQty(i,delta){
+  cart[i].qty+=delta;
+  if(cart[i].qty<=0)cart.splice(i,1);
+  updateCartUI();
+}
+function removeItem(i){cart.splice(i,1);updateCartUI();}
+
+function toggleCart(){
+  document.getElementById('cartDrawer').classList.toggle('open');
+  document.getElementById('cartOverlay').classList.toggle('open');
+}
+
+function showPresupuesto(){
+  if(cart.length===0)return;
+  const now=new Date();
+  document.getElementById('modalDate').textContent=now.toLocaleDateString('es-AR',{day:'numeric',month:'long',year:'numeric'});
+  const total=cart.reduce((s,c)=>s+c.price*c.qty,0);
+  const subtotal=total;
+  document.getElementById('modalItems').innerHTML=cart.map(item=>`
+    <div class="modal-item">
+      <div>
+        <div class="modal-item-name">${item.name}</div>
+        <div class="modal-item-detail">${item.size} cm × ${item.qty} unidad${item.qty!==1?'es':''}</div>
+      </div>
+      <div class="modal-item-price">$${(item.price*item.qty).toLocaleString('es-AR')}</div>
+    </div>`).join('')+
+    `<div class="modal-subtotal"><span>Subtotal (${cart.reduce((s,c)=>s+c.qty,0)} artículos)</span><span>$${subtotal.toLocaleString('es-AR')}</span></div>
+     <div class="modal-total"><span>Total</span><span>$${total.toLocaleString('es-AR')}</span></div>`;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal(){document.getElementById('modalOverlay').classList.remove('open');}
+
+function sendWhatsapp(){
+  if(cart.length===0)return;
+  const total=cart.reduce((s,c)=>s+c.price*c.qty,0);
+  let msg='Hola! Me interesa hacer un pedido de *Propia Home*:\n\n';
+  cart.forEach(item=>{msg+=`• ${item.name} (${item.size}cm) x${item.qty} = $${(item.price*item.qty).toLocaleString('es-AR')}\n`;});
+  msg+=`\n*Total estimado: $${total.toLocaleString('es-AR')}*\n\n¿Me podés confirmar disponibilidad?`;
+  const encoded=encodeURIComponent(msg);
+  window.open('https://wa.me/?text='+encoded,'_blank');
+}
+
+function clearFilters(){
+  document.getElementById('searchInput').value='';
+  activeColors=[];
+  activeSize=null;
+  activeCat='all';
+  document.getElementById('priceSlider').value=80000;
+  updatePriceLabel();
+  document.querySelectorAll('.color-swatch').forEach(el=>el.classList.remove('active'));
+  document.querySelector('.color-swatch').classList.add('active');
+  document.querySelectorAll('.size-pill').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.cat-btn').forEach(el=>el.classList.remove('active'));
+  document.querySelector('.cat-btn').classList.add('active');
+  applyFilters();
+}
+
+buildSizeFilters();
+applyFilters();
+</script>
+</body>
+</html>

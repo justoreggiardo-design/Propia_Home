@@ -1,0 +1,6 @@
+.vercel
+debug/
+scraps/
+uploads/
+node_modules/
+*.log
