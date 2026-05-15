@@ -1510,6 +1510,17 @@
         "assets/products/p29_0.jpg",
         "assets/products/p29_1.jpg"
       ]
+    },
+    {
+      "id": "nuevooo",
+      "name": "Nuevooo",
+      "desc": "d",
+      "cat": "pana",
+      "colors": [
+        "negro"
+      ],
+      "sizes": [],
+      "imgs": []
     }
   ],
   "colorHex": {
