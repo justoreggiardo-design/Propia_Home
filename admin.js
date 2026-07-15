@@ -105,8 +105,8 @@ const Admin = {
       }
       const result = await res.json();
       currentSHA = result.content.sha;
-      setStatus('✓ Guardado · Vercel redeploy en ~30s');
-      setTimeout(() => setStatus(''), 5000);
+      setStatus('✓ Guardado en GitHub · esperá 1–2 min y refrescá la web');
+      setTimeout(() => setStatus(''), 12000);
     } catch (e) {
       setStatus('Error al guardar: ' + e.message);
     }

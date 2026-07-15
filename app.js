@@ -532,7 +532,7 @@ document.addEventListener('keydown', e => {
 });
 
 /* ----- Init ----- */
-fetch('products.json')
+fetch('products.json?v=' + Date.now(), { cache: 'no-store' })
   .then(r => r.json())
   .then(data => {
     window.PRODUCTS    = data.products;
