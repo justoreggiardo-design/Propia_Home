@@ -1491,27 +1491,6 @@
       ]
     },
     {
-      "id": "xxl",
-      "name": "XXL Rayado",
-      "desc": "Tusor rayado beige o negro — relleno de perlas tergopol, desmontable como lona",
-      "cat": "tusor",
-      "colors": [
-        "beige",
-        "negro"
-      ],
-      "sizes": [
-        {
-          "code": "2080",
-          "size": "110x80",
-          "price": 75000
-        }
-      ],
-      "imgs": [
-        "assets/products/p29_0.jpg",
-        "assets/products/p29_1.jpg"
-      ]
-    },
-    {
       "id": "nuevooo",
       "name": "Nuevooo",
       "desc": "d",
