@@ -1489,17 +1489,6 @@
       "imgs": [
         "assets/products/p28_1.jpg"
       ]
-    },
-    {
-      "id": "nuevooo",
-      "name": "Nuevooo",
-      "desc": "d",
-      "cat": "pana",
-      "colors": [
-        "negro"
-      ],
-      "sizes": [],
-      "imgs": []
     }
   ],
   "colorHex": {
