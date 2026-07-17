@@ -5,6 +5,7 @@
    ================================================================= */
 
 const SESSION_KEY = 'propia_admin_session';
+const PREFS_KEY   = 'propia_admin_prefs';   // datos no sensibles (repo, cloudName, preset) persistidos entre sesiones
 
 const COLOR_HEX = {
   natural: '#F5F0E8', tostado: '#D4B896', chocolate: '#6B4C3B',
@@ -50,6 +51,7 @@ const Admin = {
         currentSHA = sha;
         products = data.products;
         sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
+        localStorage.setItem(PREFS_KEY, JSON.stringify({ repo, cloudName: cloud, cloudPreset: preset }));
         document.getElementById('loginScreen').classList.add('hidden');
         document.getElementById('adminShell').classList.remove('hidden');
         renderProductList();
@@ -398,6 +400,17 @@ function readForm() {
       document.getElementById('loginCloud').value = session.cloudName;
       document.getElementById('loginPreset').value = session.cloudPreset;
     } catch (_) { session = null; }
+  }
+
+  /* Sin sesión activa: precargar datos no sensibles guardados (repo, cloud name, preset).
+     El token NO se guarda por seguridad: es lo único que hay que reescribir. */
+  if (!session) {
+    try {
+      const prefs = JSON.parse(localStorage.getItem(PREFS_KEY) || '{}');
+      if (prefs.repo)        document.getElementById('loginRepo').value   = prefs.repo;
+      if (prefs.cloudName)   document.getElementById('loginCloud').value  = prefs.cloudName;
+      if (prefs.cloudPreset) document.getElementById('loginPreset').value = prefs.cloudPreset;
+    } catch (_) {}
   }
 
   if (session) {

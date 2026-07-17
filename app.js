@@ -357,13 +357,13 @@ function showPresupuesto() {
   document.getElementById('modalOverlay').classList.add('open');
 }
 
-function buildWhatsappMessage() {
-  let msg = '*Hola Propia Home!* Quiero consultar por este presupuesto:%0A%0A';
+function buildEmailBody() {
+  let msg = 'Hola Propia Home! Quiero consultar por este presupuesto:\n\n';
   state.cart.forEach(i => {
-    msg += `• ${i.name} (${i.size} cm) — ${i.qty} u. × ${fmt(i.price)} = *${fmt(i.qty * i.price)}*%0A`;
+    msg += `• ${i.name} (${i.size} cm) — ${i.qty} u. x ${fmt(i.price)} = ${fmt(i.qty * i.price)}\n`;
   });
   const total = state.cart.reduce((s,i) => s + i.qty * i.price, 0);
-  msg += `%0A*Total: ${fmt(total)}*`;
+  msg += `\nTotal: ${fmt(total)}`;
   return msg;
 }
 
@@ -513,9 +513,12 @@ window.UI = {
 
   showPresupuesto,
   closeModal() { document.getElementById('modalOverlay').classList.remove('open'); },
-  sendWhatsapp() {
+  sendEmail() {
     if (!state.cart.length) { alert('Tu canasta está vacía.'); return; }
-    window.open(`https://wa.me/?text=${buildWhatsappMessage()}`, '_blank');
+    const to = 'propiahome@gmail.com';
+    const subject = encodeURIComponent('Consulta de presupuesto — Propia Home');
+    const body = encodeURIComponent(buildEmailBody());
+    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
   },
 };
 
