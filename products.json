@@ -1489,6 +1489,21 @@
       "imgs": [
         "assets/products/p28_1.jpg"
       ]
+    },
+    {
+      "id": "victorio",
+      "name": "Victorio",
+      "desc": "Gasa jaspeada",
+      "cat": "tusor",
+      "colors": [
+        "natural",
+        "chocolate",
+        "verde",
+        "beige",
+        "gris"
+      ],
+      "sizes": [],
+      "imgs": []
     }
   ],
   "colorHex": {
