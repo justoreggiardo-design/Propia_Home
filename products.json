@@ -1489,17 +1489,6 @@
       "imgs": [
         "assets/products/p28_1.jpg"
       ]
-    },
-    {
-      "id": "sofia",
-      "name": "Sofia",
-      "desc": "",
-      "cat": "tusor",
-      "colors": [],
-      "sizes": [],
-      "imgs": [
-        "https://res.cloudinary.com/dtd5zjqvp/image/upload/v1784318404/uulb1bxztk9ykre2vtdd.jpg"
-      ]
     }
   ],
   "colorHex": {
